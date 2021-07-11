@@ -13,7 +13,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
-public class URLConnectionFactory {
+public class TelegramURLConnectionFactory {
     private static Logger logger = LogManager.getLogger(TelegramNotificationSenderService.class);
     private static final Properties properties = new Properties();
     private static final String RESOURCE = "notification.properties";
@@ -41,7 +41,7 @@ public class URLConnectionFactory {
         CHAT_ID = (String) properties.get(CHAT_ID_PROPERTY);
     }
 
-    private URLConnectionFactory() {
+    private TelegramURLConnectionFactory() {
     }
 
     public static URLConnection createConnection(String urlText) throws NotificationException {

@@ -1,6 +1,6 @@
 package com.epam.telegram.service.impl;
 
-import com.epam.telegram.connection.URLConnectionFactory;
+import com.epam.telegram.connection.TelegramURLConnectionFactory;
 import com.epam.telegram.entity.Notification;
 import com.epam.telegram.exception.NotificationException;
 import com.epam.telegram.service.NotificationSenderService;
@@ -35,7 +35,7 @@ public class TelegramNotificationSenderService implements NotificationSenderServ
 
     private void send(Notification notification) throws NotificationException {
         try {
-            URLConnection connection = URLConnectionFactory.createConnection(notification.toString());
+            URLConnection connection = TelegramURLConnectionFactory.createConnection(notification.toString());
             StringBuilder sb = new StringBuilder();
             InputStream is = new BufferedInputStream(connection.getInputStream());
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
